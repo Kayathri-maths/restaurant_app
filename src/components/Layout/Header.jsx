@@ -1,4 +1,13 @@
+import { useContext } from "react";
+import CartContext from "../../store/cart-context";
+
 const Header = ({ onShowCart }) => {
+  const cartCtx = useContext(CartContext);
+
+  const numberOfCartItems = cartCtx.items.reduce((cur, item) => {
+    return cur + item.amount;
+  }, 0);
+
   return (
     <header className="fixed top-0 left-0 w-full h-20 bg-[#8a2b06] text-white flex justify-between items-center px-[10%] shadow-lg z-10">
       <h1 className="text-2xl font-bold">ReactMeals</h1>
@@ -9,7 +18,9 @@ const Header = ({ onShowCart }) => {
       >
         <span>🛒</span>
         <span>Your Cart</span>
-        <span className="bg-[#b94517] px-3 py-1 rounded-full font-bold">3</span>
+        <span className="bg-[#b94517] px-3 py-1 rounded-full font-bold">
+          {numberOfCartItems}
+        </span>
       </button>
     </header>
   );

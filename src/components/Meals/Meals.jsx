@@ -1,3 +1,6 @@
+import { useContext } from "react";
+import CartContext from "../../store/cart-context";
+
 const DUMMY_MEALS = [
   {
     id: "m1",
@@ -26,6 +29,8 @@ const DUMMY_MEALS = [
 ];
 
 const Meals = () => {
+  const cartCtx = useContext(CartContext);
+
   return (
     <section className="max-w-3xl mx-auto mt-32 bg-white rounded-xl shadow-lg p-6">
       <ul className="divide-y">
@@ -55,7 +60,15 @@ const Meals = () => {
 
               <button
                 type="button"
-                className="bg-[#8a2b06] text-white px-6 py-1 rounded-full hover:bg-[#641e03] transition"
+                onClick={() =>
+                  cartCtx.addItem({
+                    id: meal.id,
+                    name: meal.name,
+                    price: meal.price,
+                    amount: 1,
+                  })
+                }
+                className="bg-[#8a2b06] text-white px-6 py-1 rounded-full"
               >
                 + Add
               </button>
