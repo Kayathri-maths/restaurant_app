@@ -1,14 +1,11 @@
 import Header from "./components/Layout/Header";
+import Hero from "./components/Layout/Hero";
 
 function App() {
   return (
     <>
       <Header />
-      <div className="pt-24">
-        {" "}
-        {/* Space below fixed header */}
-        {/* Next sections will go here */}
-      </div>
+      <Hero />
     </>
   );
 }
