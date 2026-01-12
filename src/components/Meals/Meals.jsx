@@ -31,6 +31,7 @@ const Meals = () => {
       <ul className="divide-y">
         {DUMMY_MEALS.map((meal) => (
           <li key={meal.id} className="py-4 flex justify-between items-center">
+            {/* Left side: meal info */}
             <div>
               <h3 className="font-bold text-lg">{meal.name}</h3>
               <p className="italic text-gray-500">{meal.description}</p>
@@ -39,9 +40,26 @@ const Meals = () => {
               </p>
             </div>
 
-            <button className="bg-[#8a2b06] text-white px-4 py-1 rounded-full hover:bg-[#641e03] transition">
-              + Add
-            </button>
+            {/* Right side: form */}
+            <form className="flex flex-col items-end gap-2">
+              <div className="flex items-center gap-2">
+                <label className="font-semibold">Amount</label>
+                <input
+                  type="number"
+                  min="1"
+                  max="5"
+                  defaultValue="1"
+                  className="w-12 border rounded px-2 py-1 text-center"
+                />
+              </div>
+
+              <button
+                type="button"
+                className="bg-[#8a2b06] text-white px-6 py-1 rounded-full hover:bg-[#641e03] transition"
+              >
+                + Add
+              </button>
+            </form>
           </li>
         ))}
       </ul>
