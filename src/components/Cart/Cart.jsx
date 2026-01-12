@@ -1,10 +1,10 @@
 import Modal from "../UI/Modal";
 
-const Cart = () => {
+const Cart = ({ onClose }) => {
   return (
-    <Modal>
+    <Modal onClose={onClose}>
       <div>
-        {/* Hardcoded item */}
+        {/* Item */}
         <div className="flex justify-between mb-4">
           <h2 className="font-bold">Sushi</h2>
           <span className="font-bold">$22.99</span>
@@ -26,7 +26,10 @@ const Cart = () => {
 
         {/* Buttons */}
         <div className="flex justify-end gap-3">
-          <button className="border border-[#8a2b06] text-[#8a2b06] px-6 py-2 rounded-full hover:bg-gray-100">
+          <button
+            onClick={onClose}
+            className="border border-[#8a2b06] text-[#8a2b06] px-6 py-2 rounded-full hover:bg-gray-100"
+          >
             Close
           </button>
 
